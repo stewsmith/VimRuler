@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>ACE in Action</title>
+<title>Vim Ruler</title>
 <style type="text/css" media="screen">
     #editor { 
         position: absolute;
@@ -18,14 +18,14 @@
     var x = "All this is syntax highlighted";
     return x;
 }</div>
-    
+
 <script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/keybinding-vim.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
+    //editor.setTheme("ace/theme/twilight");
     editor.setKeyboardHandler("ace/keyboard/vim");
     editor.getSession().setMode("ace/mode/javascript");
 </script>
