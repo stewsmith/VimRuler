@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 
 io.sockets.on('connection', function(socket) {
 
-    var target = 'alextang\nalextang';
+  var target = 'alextang\nalextang';
   socket.on('broadcast1', function(data) {
     if(data !== null) {
       var diffs = dmp.diff_main(data,target);
