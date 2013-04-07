@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Vim Ruler</title>
-    <link rel="stylesheet" type="text/css" href="javascripts/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" media="screen" href="javascripts/bootstrap/css/bootstrap.min.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
   </head>
@@ -12,8 +12,7 @@
     <script src="javascripts/ace-builds/src/keybinding-vim.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
-
-    <div class="container">
+    <div class="row">
       <div class="span4" id="editor1">
         Welcome player 1
         This is target
@@ -58,7 +57,6 @@
 
       var target = ace.edit("target");
       target.setReadOnly(true);
-      target.setKeyboardHandler("ace/keyboard/vim");
       /*target.getSession().setMode("ace/mode/javascript");*/
 
       var socket = io.connect('/');
