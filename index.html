@@ -25,7 +25,6 @@
         sincerely,
         player 2
       </div>
-
       <div class="column" id="target">
         This is the target
         You must match the target.
@@ -52,17 +51,17 @@
       var editor1 = ace.edit("editor1");
       var editSession1 = editor1.getSession();
       editor1.setKeyboardHandler("ace/keyboard/vim");
-      editSession1.setMode("ace/mode/javascript");
+      /*editSession1.setMode("ace/mode/javascript");*/
 
       var editor2 = ace.edit("editor2");
       var editSession2 = editor2.getSession();
       editor2.setKeyboardHandler("ace/keyboard/vim");
-      editSession2.setMode("ace/mode/javascript");
+      /*editSession2.setMode("ace/mode/javascript");*/
 
       var target = ace.edit("target");
       target.setReadOnly(true);
       target.setKeyboardHandler("ace/keyboard/vim");
-      target.getSession().setMode("ace/mode/javascript");
+      /*target.getSession().setMode("ace/mode/javascript");*/
 
       var socket = io.connect('/');
 
