@@ -7,40 +7,57 @@
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
-    <h1> Vim Ruler </h1>
-    <div id="editor">function foo(items) {
-      var x = "All this is syntax highlighted";
-      return x;
-      }</div>
-    <div id="editor2">function foo(items) {
-      var x = "This is the second editor";
-      return x;
-      }</div>
+    <h1>Vim Ruler</h1>
     <script src="javascripts/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/keybinding-vim.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+
+    <div id="editor1">Welcome player 1
+    </div>
+
+    <div id="editor2">Welcome player 2
+    </div>
+
     <script>
-      var socket = io.connect('/');
-      
-      var editor = ace.edit("editor");
+      var editor1 = ace.edit("editor1");
+      var editSession1 = editor1.getSession();
+      editor1.setKeyboardHandler("ace/keyboard/vim");
+      editSession1.setMode("ace/mode/javascript");
+
       var editor2 = ace.edit("editor2");
-      editor.setTheme("ace/theme/monokai");
-      editor.setKeyboardHandler("ace/keyboard/vim");
-      editor.getSession().setMode("ace/mode/javascript");
+      var editSession2 = editor2.getSession();
       editor2.setKeyboardHandler("ace/keyboard/vim");
-      editor2.getSession().setMode("ace/mode/javascript");
+      editSession2.setMode("ace/mode/javascript");
 
       var socket = io.connect('/');
 
-      socket.on('welcome', function(player) {
-        $('#editor').text('welcome ' + player);
-        editor = ace.edit("editor");
+      $('#editor1').on('keyup', function (event) {
+        var doc = editSession1.getValue();
+        socket.emit('broadcast1', doc);
+        console.log(doc);
+        console.log(event);
       });
 
+      $('#editor2').on('keyup', function (event) {
+        var doc = editSession2.getValue();
+        socket.emit('broadcast2', doc);
+        console.log(doc);
+        console.log(event);
+      });
+
+      socket.on('update1', function(doc) {
+         editSession1.getDocument().setValue(doc);
+      });
+
+      socket.on('update2', function(doc) {
+         editSession2.getDocument().setValue(doc);
+      });
+
+      socket.on('endgame', function(player) {
+        alert(player + 'wins');
+      });
     </script>
-
-
   </body>
 </html>
 
