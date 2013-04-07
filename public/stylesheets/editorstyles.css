@@ -1,28 +1,19 @@
-#editor {
+#editor1 {
   height: 500px;
-  padding:10px;
-  border:5px solid black;
-  margin:0px;
 }
 
 #target {
   height: 500px;
-  padding:10px;
-  border:5px solid black;
-  margin:0px;
 }
 
 #editor2 {
   height: 500px;
-  padding:10px;
-  border:5px solid black;
-  margin:0px;
 }
 
 .column {
   display: inline-block;
   top: 50; 
-  width:29%;
+  width:33%;
 }
 
 .container {
@@ -30,20 +21,6 @@
   top: 50; 
 }
 
-div#banner { 
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  background-color: #E65C00; 
-  height: 100px;
-  width: 100%; 
-}
-div#banner-content { 
-  width: 800px; 
-  margin: 0 auto; 
-  padding: 10px; 
-  border: 1px ;
-}
 h1{font-size: 375%;}
 
 h1{
