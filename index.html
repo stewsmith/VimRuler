@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Vim Ruler</title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/editorstyles.css" />
+    <link rel="stylesheet" type="text/css" href="javascripts/bootstrap/css/bootstrap.min.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
   </head>
@@ -14,7 +14,7 @@
     <script src="javascripts/ace-builds/src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
 
     <div class="container">
-      <div class="column" id="editor1">
+      <div class="span4" id="editor1">
         Welcome player 1
         This is target
         You must march the target.
@@ -25,7 +25,7 @@
         sincerely,
         player 2
       </div>
-      <div class="column" id="target">
+      <div class="span4" id="target">
         This is the target
         You must match the target.
         In order to match the 
@@ -33,8 +33,7 @@
         you must vist GONE_ILL.info
         thank you.
       </div>
-
-      <div class="column" id="editor2">
+      <div class="span4" id="editor2">
         Welcome player 2
         This is target
         You must march the target.
@@ -44,7 +43,6 @@
         thank you. for you time.
         sincerely,
         player 1
-
       </div>
     </div>
     <script>
@@ -92,6 +90,7 @@
          editSession1.getDocument().setValue(doc);
       });
     </script>
+    <script src="javascripts/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
   </body>
 </html>
 
