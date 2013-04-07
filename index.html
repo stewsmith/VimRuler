@@ -8,7 +8,7 @@
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
-    <h1>Vim Ruler</h1>
+        <h1>Vim Ruler</h1>
     <div class="container">
       <div class="column" id="editor">function foo(items) {
         var x = "All this is syntax highlighted";
@@ -33,7 +33,9 @@
       var editor = ace.edit("editor");
       var editor2 = ace.edit("editor2");
       var target = ace.edit("target");
+      target.setReadOnly(true);
       editor.setTheme("ace/theme/monokai");
+      editor2.setTheme("ace/theme/monokai");
       editor.setKeyboardHandler("ace/keyboard/vim");
       editor2.setKeyboardHandler("ace/keyboard/vim");
       target.setKeyboardHandler("ace/keyboard/vim");
