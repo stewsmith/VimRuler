@@ -12,9 +12,9 @@ app.get('/', function(req, res) {
 
 var player = 1;
 io.sockets.on('connection', function(socket) {
-  socket.emit('welcome', player);
-  player++;
-
+  socket.on('update', function(data){
+    console.log(data);
+  });
 });
 
 server.listen(8080);

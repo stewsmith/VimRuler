@@ -33,11 +33,9 @@
 
       var socket = io.connect('/');
 
-      socket.on('welcome', function(player) {
-        $('#editor').text('welcome ' + player);
-        editor = ace.edit("editor");
+      editor.getSession().on('change', function(event){
+        console.log(event);
       });
-
     </script>
 
 
