@@ -3,33 +3,43 @@
   <head>
     <title>Vim Ruler</title>
     <link rel="stylesheet" type="text/css" href="stylesheets/editorstyles.css" />
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
-    <h1> Vim Ruler </h1>
-    <div id="editor">function foo(items) {
-      var x = "All this is syntax highlighted";
-      return x;
-      }</div>
-    <div id="editor2">function foo(items) {
-      var x = "This is the second editor";
-      return x;
-      }</div>
+    <h1>Vim Ruler</h1>
+    <div class="container">
+      <div class="column" id="editor">function foo(items) {
+        var x = "All this is syntax highlighted";
+        return x;
+        }</div>
+      <div class="column" id="target">
+        This is the target
+      </div>
+      <div class="column" id="editor2">function foo(items) {
+        var x = "This is the second editor";
+        return x;
+        }</div>
+    </div>
+
     <script src="javascripts/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/keybinding-vim.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
     <script>
       var socket = io.connect('/');
-      
+
       var editor = ace.edit("editor");
       var editor2 = ace.edit("editor2");
+      var target = ace.edit("target");
       editor.setTheme("ace/theme/monokai");
       editor.setKeyboardHandler("ace/keyboard/vim");
-      editor.getSession().setMode("ace/mode/javascript");
       editor2.setKeyboardHandler("ace/keyboard/vim");
+      target.setKeyboardHandler("ace/keyboard/vim");
+      editor.getSession().setMode("ace/mode/javascript");
       editor2.getSession().setMode("ace/mode/javascript");
+      target.getSession().setMode("ace/mode/javascript");
 
       var socket = io.connect('/');
 

@@ -1,20 +1,37 @@
 #editor {
-    position: absolute;
-    top: 100;
-    right: 100;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    height: 90%;
+  height: 500px;
+  padding:10px;
+  border:5px solid black;
+  margin:0px;
+}
+
+#target {
+  height: 500px;
+  padding:10px;
+  border:5px solid black;
+  margin:0px;
 }
 
 #editor2 {
-    position: absolute;
-    top: 100;
-    right: 0;
-    bottom: 0;
-    left: 100;
-    width: 50%;
-    height: 90%;
+  height: 500px;
+  padding:10px;
+  border:5px solid black;
+  margin:0px;
+}
+
+.column {
+  display: inline-block;
+  width:29%;
+}
+
+.container {
+  width: 1200px;
+}
+
+h1{
+  font-weight: 300;
+  color: #999
+  font-size: 150px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 

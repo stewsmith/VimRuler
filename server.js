@@ -10,7 +10,6 @@ app.get('/', function(req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
-var player = 1;
 io.sockets.on('connection', function(socket) {
   socket.on('update', function(data){
     console.log(data);
