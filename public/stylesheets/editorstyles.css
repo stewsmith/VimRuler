@@ -1,14 +1,16 @@
-body{
-  background-color:#3366FF;
+h1 {
+  text-align: center;
+  font-family: sans-serif;
 }
+
 #editor1 {
   position: absolute;
   top: 100px;
-  right: 100px;
+  right: ;
   bottom: 0;
   left: 0;
   width: 33%;
-  height: 70%;
+  height: 100%;
 }
 
 #editor2 {
@@ -17,14 +19,14 @@ body{
   right: 0;
   bottom: 0;
   width: 33%;
-  height: 70%;
+  height: 100%;
 }
 
 #target{
   position: absolute;
   top: 100px;
-  right: 415px;
+  right: 33.5%;
   bottom: 0;
   width: 33%;
-  height: 70%;
+  height: 100%;
 }

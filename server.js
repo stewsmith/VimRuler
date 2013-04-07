@@ -14,8 +14,12 @@ app.get('/', function(req, res) {
 });
 
 io.sockets.on('connection', function(socket) {
+  var target;
 
-  var target = 'alextang\nalextang';
+  socket.on('getTarget', function(data) {
+    target = data;
+  });
+
   socket.on('broadcast1', function(data) {
     if(data !== null) {
       var diffs = dmp.diff_main(data,target);
@@ -36,7 +40,7 @@ io.sockets.on('connection', function(socket) {
       console.log(diffs.length);
       // win condition
       if (diffs.length === 1 && diffs[0][0] === 0) {
-        socket.emit('endgame', 'player1');
+        socket.emit('endgame', 'player2');
       }
     }
     socket.broadcast.emit('update2',data);
