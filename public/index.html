@@ -3,6 +3,7 @@
   <head>
     <title>Vim Ruler</title>
     <link rel="stylesheet" type="text/css" href="stylesheets/editorstyles.css" />
+    <link media='screen' href='bootstrap/css/bootstrap.min.css' rel='stylesheet' />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
   </head>
@@ -13,23 +14,22 @@
     <script src="javascripts/ace-builds/src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
 
-    <div class="container">
-      <div class="span4" id="editor1">Welcome player 1
+    <div id="editor1">Welcome player 1
 In order to march the target
 please imagine
 GERARD_IN_A_BABY_SUIT.biz
 thank you. for you time.
 sincerely,
 player 2</div>
-      <div class="span4" id="target">please imagine GERARD_IN_A_BABY_SUIT.biz</div>
-      <div class="span4" id="editor2">Welcome player 2
+    <div id="target">please imagine GERARD_IN_A_BABY_SUIT.biz</div>
+    <div id="editor2">Welcome player 2
 In order to march the target
 please imagine
 GERARD_IN_A_BABY_SUIT.biz
 thank you. for you time.
 sincerely,
 player 1</div>
-    </div>
+
     <script>
       var socket = io.connect('/');
       var editor1 = ace.edit("editor1");
