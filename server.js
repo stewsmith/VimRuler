@@ -5,12 +5,15 @@ var express = require('express')
   , path = require('path');
 
 app.use(express.static(path.join(__dirname, '/public')));
+
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
+var player = 1;
 io.sockets.on('connection', function(socket) {
-
+  socket.emit('welcome', player);
+  player++;
 
 });
 

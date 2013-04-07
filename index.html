@@ -3,6 +3,8 @@
   <head>
     <title>Vim Ruler</title>
     <link rel="stylesheet" type="text/css" href="stylesheets/editorstyles.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
     <h1> Vim Ruler </h1>
@@ -14,7 +16,6 @@
       var x = "This is the second editor";
       return x;
       }</div>
-  
     <script src="javascripts/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/keybinding-vim.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
@@ -27,7 +28,17 @@
       editor.getSession().setMode("ace/mode/javascript");
       editor2.setKeyboardHandler("ace/keyboard/vim");
       editor2.getSession().setMode("ace/mode/javascript");
+
+      var socket = io.connect('/');
+
+      socket.on('welcome', function(player) {
+        $('#editor').text('welcome ' + player);
+        editor = ace.edit("editor");
+      });
+
     </script>
+
+
   </body>
 </html>
 
