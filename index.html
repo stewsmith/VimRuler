@@ -7,42 +7,62 @@
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
-        <h1>Vim Ruler</h1>
+    <h1>Vim Ruler</h1>
     <script src="javascripts/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/keybinding-vim.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
 
     <div class="container">
-      <div class="column" id="editor1">function foo(items) {
-        var x = "All this is syntax highlighted";
-        return x;
-        }</div>
+      <div class="column" id="editor1">
+        Welcome player 1
+        This is target
+        You must march the target.
+        In order to march the target
+        you must
+        visit GERARD_IN_A_BABY_SUIT.biz
+        thank you. for you time.
+        sincerely,
+        player 2
+      </div>
+
       <div class="column" id="target">
         This is the target
+        You must match the target.
+        In order to match the 
+        target
+        you must vist GONE_ILL.info
+        thank you.
       </div>
-      <div class="column" id="editor2">function foo(items) {
-        var x = "This is the second editor";
-        return x;
-        }</div>
-    </div>
 
+      <div class="column" id="editor2">
+        Welcome player 2
+        This is target
+        You must march the target.
+        In order to march the target
+        you must
+        visit GERARD_IN_A_BABY_SUIT.biz
+        thank you. for you time.
+        sincerely,
+        player 1
+
+      </div>
+    </div>
     <script>
       var editor1 = ace.edit("editor1");
       var editSession1 = editor1.getSession();
       editor1.setKeyboardHandler("ace/keyboard/vim");
       editSession1.setMode("ace/mode/javascript");
-      editor1.setTheme("ace/theme/monokai");
 
       var editor2 = ace.edit("editor2");
       var editSession2 = editor2.getSession();
       editor2.setKeyboardHandler("ace/keyboard/vim");
       editSession2.setMode("ace/mode/javascript");
-      editor2.setTheme("ace/theme/monokai");
 
       var target = ace.edit("target");
       target.setReadOnly(true);
-      target.setMode("ace/mode/javascript");
+      target.setKeyboardHandler("ace/keyboard/vim");
+      target.getSession().setMode("ace/mode/javascript");
 
       var socket = io.connect('/');
 
@@ -61,6 +81,17 @@
       });
 
       socket.on('update1', function(doc) {
-         editSession1.getDocument().setValue(doc);
+        editSession1.getDocument().setValue(doc);
+      });
+
+      socket.on('update2', function(doc) {
+        editSession2.getDocument().setValue(doc);
+      });
+
+      socket.on('endgame', function(player) {
+        alert(player + ' wins');
       });
     </script>
+  </body>
+</html>
+
