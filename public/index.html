@@ -15,31 +15,33 @@
     <script src="javascripts/ace-builds/src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
 
     <div id="editor1">Welcome player 1
-In order to march the target
-please imagine
-GERARD_IN_A_BABY_SUIT.biz
-thank you. for you time.
-sincerely,
-player 2</div>
+      In order to march the target
+      please imagine
+      GERARD_IN_A_BABY_SUIT.biz
+      thank you. for you time.
+      sincerely,
+      player 2</div>
     <div id="target">please imagine GERARD_IN_A_BABY_SUIT.biz</div>
     <div id="editor2">Welcome player 2
-In order to march the target
-please imagine
-GERARD_IN_A_BABY_SUIT.biz
-thank you. for you time.
-sincerely,
-player 1</div>
+      In order to march the target
+      please imagine
+      GERARD_IN_A_BABY_SUIT.biz
+      thank you. for you time.
+      sincerely,
+      player 1</div>
 
     <script>
       var socket = io.connect('/');
       var editor1 = ace.edit("editor1");
       var editSession1 = editor1.getSession();
       editor1.setKeyboardHandler("ace/keyboard/vim");
+      editor1.setTheme("ace/theme/monokai");
       //editSession1.setMode("ace/mode/javascript");
 
       var editor2 = ace.edit("editor2");
       var editSession2 = editor2.getSession();
       editor2.setKeyboardHandler("ace/keyboard/vim");
+      editor2.setTheme("ace/theme/monokai");
       //editSession2.setMode("ace/mode/javascript");
 
       socket.emit('getTarget', $('#target').html());
