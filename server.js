@@ -40,7 +40,7 @@ io.sockets.on('connection', function(socket) {
       console.log(diffs.length);
       // win condition
       if (diffs.length === 1 && diffs[0][0] === 0) {
-        socket.emit('endgame', 'player1');
+        socket.emit('endgame', 'player2');
       }
     }
     socket.broadcast.emit('update2',data);
