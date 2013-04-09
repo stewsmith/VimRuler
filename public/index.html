@@ -5,14 +5,15 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/editorstyles.css" />
     <link media='screen' href='bootstrap/css/bootstrap.min.css' rel='stylesheet' />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="/socket.io/sockctrl-shift-1,et.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
     <script src="javascripts/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/keybinding-vim.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
     <script src="javascripts/ace-builds/src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
-    <h1>Vim Ruler</h1>
+    <script src="javascripts/ace-builds/src/mode-asciidoc.js" type="text/javascript" charset="utf-8"></script>
+
     <div id="editor1">Welcome player 1
       In order to march the target
       please imagine
@@ -35,19 +36,18 @@
       var editSession1 = editor1.getSession();
       editor1.setKeyboardHandler("ace/keyboard/vim");
       editor1.setTheme("ace/theme/monokai");
-      //editSession1.setMode("ace/mode/javascript");
+      editSession1.setMode("ace/mode/asciidoc");
 
       var editor2 = ace.edit("editor2");
       var editSession2 = editor2.getSession();
       editor2.setKeyboardHandler("ace/keyboard/vim");
       editor2.setTheme("ace/theme/monokai");
-      //editSession2.setMode("ace/mode/javascript");
+      editSession2.setMode("ace/mode/asciidoc");
 
       socket.emit('getTarget', $('#target').html());
       var target = ace.edit("target");
       target.setReadOnly(true);
       //target.getSession().setMode("ace/mode/javascript");
-
 
       $('#editor1').on('keyup', function (event) {
         var doc = editSession1.getValue();

@@ -1,26 +1,15 @@
-h1 {
-  text-align: center;
-}
-
-#editor1 {
+#editor1, #editor2, #target {
   position: absolute;
-  top: 100px;
+  top: 1em;
+  bottom: 0;
   width: 33%;
-  height: 100%;
+  height: 100%-1em;
 }
 
 #editor2 {
-  position: absolute;
-  top: 100px;
   right: 0;
-  width: 33%;
-  height: 100%;
 }
 
 #target{
-  position: absolute;
-  top: 100px;
   right: 33.5%;
-  width: 33%;
-  height: 100%;
 }
