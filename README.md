@@ -7,5 +7,6 @@ ToDo
 -----
 Make it look pretty  
 Start button  
-Make rooms for people
+Make rooms for people  
+vim tips pop up based on target
 
