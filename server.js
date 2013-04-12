@@ -6,6 +6,7 @@ var express = require('express')
   , diff_match_patch = require('googlediff');
 
 var dmp = new diff_match_patch();
+var won = false;
 
 app.use(express.static(path.join(__dirname, '/public')));
 
@@ -26,8 +27,9 @@ io.sockets.on('connection', function(socket) {
       console.log(diffs);
       console.log(diffs.length);
       // win condition
-      if (diffs.length === 1 && diffs[0][0] === 0) {
+      if (diffs.length === 1 && diffs[0][0] === 0 && won === false) {
         socket.emit('endgame', 'player1');
+        won = true;
       }
     }
     socket.broadcast.emit('update1',data);
@@ -39,8 +41,9 @@ io.sockets.on('connection', function(socket) {
       console.log(diffs);
       console.log(diffs.length);
       // win condition
-      if (diffs.length === 1 && diffs[0][0] === 0) {
+      if (diffs.length === 1 && diffs[0][0] === 0 && won === false) {
         socket.emit('endgame', 'player2');
+        won = true;
       }
     }
     socket.broadcast.emit('update2',data);
