@@ -1,17 +1,23 @@
-{ "name": "VimRuler"
-, "description": "Used to measure your vim prowess"
-, "version": "0.0.0-11"
-, "author": "Alex, Stew"
-, "scripts": { "start": "server.js" }
-, "repository": {
-    "type": "git"
-  , "url": "git://github.com/stewsmith/VimRuler.git"
-  }
-, "engines": { "node": "*" }
-, "dependencies": {
+{
+  "name": "VimRuler",
+  "description": "Used to measure your vim prowess",
+  "version": "0.0.0-11",
+  "author": "Alex, Stew",
+  "scripts": {
+    "start": "server.js"
+   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stewsmith/VimRuler.git"
+  },
+  "engines": {
+    "node": "1.2.x",
+    "npm": "0.10.x"
+  },
+  "dependencies": {
     "googlediff": "*",
     "socket.io": "*",
     "express": "*"
-  }
-, "subdomain": "vimruler"
+  },
+  "subdomain": "vimruler"
 }
