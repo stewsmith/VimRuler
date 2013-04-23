@@ -1,7 +1,7 @@
 {
   "name": "VimRuler",
   "description": "Used to measure your vim prowess",
-  "version": "0.0.0-1",
+  "version": "0.0.0-12",
   "author": "Alex, Stew",
   "scripts": {
     "start": "server.js"
