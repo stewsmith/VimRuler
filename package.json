@@ -11,8 +11,8 @@
     "url": "git://github.com/stewsmith/VimRuler.git"
   },
   "engines": {
-    "node": "1.2.x",
-    "npm": "0.10.x"
+    "npm": "1.2.x",
+    "node": "0.10.x"
   },
   "dependencies": {
     "googlediff": "*",
